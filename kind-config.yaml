@@ -3,9 +3,9 @@ apiVersion: kind.x-k8s.io/v1alpha4
 name: cilium-grafana-observability-demo
 nodes:
 - role: control-plane
-  image: kindest/node:v1.24.4@sha256:adfaebada924a26c2c9308edd53c6e33b3d4e453782c0063dc0028bdebaddf98
-  kubeadmConfigPatches:
+  image: kindest/node:v1.32.0
   # use node-label to configure master node as the ingress node
+  kubeadmConfigPatches:
   - |
     kind: InitConfiguration
     nodeRegistration:
