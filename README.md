@@ -83,12 +83,12 @@ Next, let's install Cilium:
 # masterIP is needed for kubeProxyReplacement
 MASTER_IP="$(docker inspect cilium-grafana-observability-demo-control-plane | jq '.[0].NetworkSettings.Networks.kind.IPAddress' -r)"
 helm upgrade cilium cilium/cilium \
-  --version 1.13.0-rc2 \
+  --version 1.16.5 \
   --install \
   --wait \
   --namespace kube-system \
   --values helm/cilium-values.yaml \
-  --set kubeProxyReplacement=strict \
+  --set kubeProxyReplacement=true \
   --set k8sServiceHost="${MASTER_IP}" \
   --set k8sServicePort=6443
 ```
